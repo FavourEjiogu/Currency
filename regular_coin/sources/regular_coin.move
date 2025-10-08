@@ -1,8 +1,8 @@
 module regular_coin::regular_coin;
 
 
-use sui::coin::Coin;
-use sui::coin_registry::{Self, CoinRegistry};
+use sui::coin::Coin; // Gives you the Coin<T> type (the base structure that represents a token of type T).
+use sui::coin_registry::{Self, CoinRegistry}; // Contains the functions and structures needed to create, register, and manage new coins on Sui.
 
 const TOTAL_SUPPLY: u64 = 1000000000_000000000; // 1B supply if decimals == 9. However, note that the actual value of the decimal is stated below.
 
@@ -10,7 +10,7 @@ const TOTAL_SUPPLY: u64 = 1000000000_000000000; // 1B supply if decimals == 9. H
 /* The type identifier of coin. The coin will have a type
 tag of kind: `Coin<package_object::module::struct>`. Check the ReadMe for more info */
 public struct MyCoin has key, store { // You actually do not need to explicitly add "store" if you already have "key". This is because, in Move, the "key" ability automatically implies "store" for all fields inside the struct. Check the ReadMe for more info
-    id: UID 
+    id: UID // Unique ID
 }
 // it is best practice to name the struct after the actual name of the coin or asset it represents. This improves code readability, maintainability, and clarity for anyone using or reviewing your code. Check out the readme for more details
 
@@ -23,9 +23,9 @@ public fun new_currency(registry: &mut CoinRegistry, ctx: &mut TxContext): Coin<
     let (mut currency, mut treasury_cap) = coin_registry::new_currency(
         registry,
         9, // This is where the actual decimal value is stated
-        b"MyCoin".to_string(), // Symbol (Abbreviation) of your coin (e.g., SCA, NAVX, SUI) 
-        b"My Coin".to_string(), // Name of your coin
-        b"Standard Unregulated Coin".to_string(), // Description of your coin
+        b"MYC".to_string(), // Symbol (Abbreviation) of your coin (e.g., SCA, NAVX, SUI) 
+        b"MyCoin".to_string(), // Name of your coin
+        b"Standard Unregulated Coin by Mello.sui".to_string(), // Description of your coin
         b"https://example.com/my_coin.png".to_string(), // Icon URL (The link to your logo, check the ReadMe for more info)
         ctx,
     );
