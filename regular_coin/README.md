@@ -421,3 +421,45 @@ So, in Sui Move, the `icon_url` for a coin is expected to be a URL string (usual
 
 ---
 
+### 3. Minting the Total Supply
+
+```move
+let total_supply = treasury_cap.mint(TOTAL_SUPPLY, ctx);
+```
+
+* **What it does:** This line mints the initial supply of your custom coin.
+* **How:**
+
+  * `treasury_cap` is a special capability that allows minting and burning of coins of a specific type.
+  * `mint(TOTAL_SUPPLY, ctx)` creates a new `Coin` object with the specified amount (`TOTAL_SUPPLY`) and assigns it to the publisher (or whoever is running this function).
+* **Result:**
+
+  * `total_supply` now holds the minted coins (as a `Coin` object).
+
+---
+
+### 4. Making the Supply Burn-Only
+
+```move
+currency.make_supply_burn_only(treasury_cap);
+```
+
+* **What it does:** This line makes the coin's supply "burn-only" (Deflationary).
+* **How:**
+
+  * `currency` is the `Currency` object representing your coin in the registry.
+  * `make_supply_burn_only(treasury_cap)` consumes the `TreasuryCap`, which means:
+
+    * **No more minting is possible** (since minting requires the `TreasuryCap`).
+    * **Burning is still allowed** (holders can destroy their coins, reducing total supply).
+* **Result:**
+
+  * The coin becomes **deflationary**: supply can **only decrease** (via burning), ***never*** **increase**.
+
+### But why should i do this?
+
+* **Deflationary coins:** This pattern is used for coins where you want a fixed initial supply, but allow holders to burn (destroy) their coins, reducing the total supply over time.
+* **No more minting:** By giving up the `TreasuryCap`, you ensure that no one (not even the original publisher) can mint more coins.
+
+---
+
