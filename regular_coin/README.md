@@ -287,3 +287,48 @@ Now, as a first timer, i know this looks crazy, but trust me it's not. By the en
 
 If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://x.com/MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Currency), thanks!
 
+## Now back to business:
+
+### 1. The Function: `new_currency`
+
+```
+public fun new_currency(registry: &mut CoinRegistry, ctx: &mut TxContext): Coin<MyCoin> {
+```
+
+This function does everything. It:
+
+* Registers your coin with Sui’s Coin Registry.
+* Creates minting authority (treasury cap).
+* Mints supply.
+* Locks the supply.
+* Sends ownership of metadata to you.
+* Returns your newly minted supply.
+
+Now, you might be wondering, in this function, does `<MyCoin>` refer to the struct or the symbol or the name of the coin?
+
+In the function signature:
+
+```move
+public fun new_currency(registry: &mut CoinRegistry, ctx: &mut TxContext): Coin<MyCoin>
+```
+
+the `<MyCoin>` refers to the ***struct***, not the symbol.
+
+**Explanation:**
+
+* In Move (and Sui), when you see a type like `Coin<MyCoin>`, the part inside the angle brackets (`<...>`) is a **type parameter**.
+* `MyCoin` here is a struct that you have defined elsewhere in your module, for example:
+
+  ```move
+  public struct MyCoin has key, store {
+      id: UID
+  }
+  ```
+* The symbol (like `"MYC"`) is just a string used for display and metadata purposes, not a type.
+
+**So, for example:**
+
+* `Coin<MelloCoin>` would mean "a coin whose underlying type is the struct `MelloCoin`".
+* The symbol, name, description, etc., are set in the coin's metadata, not in the type system.
+
+---
