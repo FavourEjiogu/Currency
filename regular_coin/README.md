@@ -463,3 +463,56 @@ currency.make_supply_burn_only(treasury_cap);
 
 ---
 
+### 5. Finalizing the Currency
+
+```move
+let metadata_cap = currency.finalize(ctx);
+```
+
+* **What it does:** This line finalizes the creation of your custom coin.
+* **How:**
+
+  * `currency` here is a `CurrencyInitializer` object, which is a temporary "builder" for your coin.
+  * Calling `.finalize(ctx)` completes the registration process for your coin and returns a `MetadataCap` object.
+  * The `MetadataCap` is a special capability that allows the holder to update the coin’s metadata (name, symbol, description, icon, etc.).
+* **Result:**
+
+  * The coin is now fully registered and ready to use.
+  * You receive a `MetadataCap` for future metadata management.
+
+---
+
+### 6. Transferring the MetadataCap
+
+```move
+transfer::public_transfer(metadata_cap, ctx.sender());
+```
+
+* **What it does:**
+  This line transfers the `MetadataCap` object to the transaction sender.
+* **How:**
+
+  * `transfer::public_transfer` is a function that moves an object (here, the `MetadataCap`) to a specified address (here, `ctx.sender()`, which is the address that published or initialized the coin).
+* **Result:**
+
+  * The sender (usually the coin creator) now owns the `MetadataCap` and can update the coin’s metadata in the future.
+
+### Why is this important?
+
+* **Metadata management:** Only the holder of the `MetadataCap` can update the coin’s metadata. By transferring it to yourself (the sender), you retain control over your coin’s branding and information.
+* **Security:** If you ever want to make the metadata immutable, you can destroy the `MetadataCap`. [(See how)]().
+
+---
+
+Okay, so here’s what happens conceptually:
+
+| Step | Function                 | What it does                                               |
+| ---- | ------------------------ | ---------------------------------------------------------- |
+| 1    | `treasury_cap.mint(...)` | Creates actual coins (your total supply).                  |
+| 2    | `make_supply_burn_only`  | Locks the treasury so no new minting can occur (optional). |
+| 3    | `finalize(...)`          | Finalizes and registers metadata (symbol, name, icon).     |
+| 4    | `transfer(...)`          | Sends ownership of metadata to you (the creator).          |
+| 5    | `return total_supply`    | Gives you the minted coins.                                |
+
+---
+
