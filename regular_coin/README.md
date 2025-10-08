@@ -516,3 +516,139 @@ Okay, so here’s what happens conceptually:
 
 ---
 
+### Common Beginner Issues (CBIs) and their solutions:
+
+> **My coins and objects got wiped!**
+
+This is an expected behavior on Devnet/Testnet.
+
+**Devnet data is wiped regularly** as part of scheduled software updates. When this happens, all balances, objects, and accounts are reset, and your previous balance will disappear.
+
+From the official documentation:
+
+> Devnet data is wiped regularly as part of scheduled software updates. The data on Testnet persists through the regular update process, but might be wiped when necessary. Testnet data wipes are announced ahead of time.
+>
+> For more information about the release schedule of Sui networks, see [Sui Network Release](https://sui.io/networkinfo/).
+
+**What can you do?**
+
+* You can request new test SUI from the Devnet faucet.
+* If you need more persistent balances, consider using Testnet instead, as its data is more stable (but still not guaranteed forever).
+
+---
+
+> **How do i publish my package?**
+
+To publish your Move package to Sui Devnet, Testnet, or Mainnet, you **should use the Sui framework as a dependency** in your `Move.toml`.
+
+**How to set the Sui framework as a dependency:**
+
+You should set the Sui framework as a dependency **exactly as shown** below, unless you have a local copy of the Sui framework you want to use instead:
+
+```toml
+[dependencies]
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "framework/devnet" }
+```
+
+Remember to replace `devnet` with your desired network.
+
+**Quick breakdown**:
+
+* `git`: Points to the official Sui repository.
+* `subdir`: Specifies the path to the Sui framework package inside the repo.
+* `rev`: `"framework/devnet"` ensures you are using the version compatible with the current devnet.
+
+This setup is the most reliable for devnet, as it matches the framework version running on the network.
+
+---
+
+**What if you want to use a local framework?**
+
+If you have a local copy of the Sui framework (for example, if you cloned the repo), you can use:
+
+```toml
+[dependencies]
+Sui = { local = "/path/to/sui/crates/sui-framework/packages/sui-framework" }
+```
+
+But for most users, the **git dependency is preferred** for devnet.
+
+---
+
+**Final Checklist for Publishing to Devnet**
+
+1. Add the dependency as shown above.
+2. Make sure you didn't tamper with the `edition` in your Move.toml file. If you did, make sure it is set to `"2024.beta"`.
+3. Build your package:
+
+   ```sh
+   sui move build
+   ```
+4. Publish to devnet:
+
+   ```sh
+   sui client publish
+   ```
+
+---
+
+> **I'm having issues with the devnet**
+>
+> [warning] Client/Server api version mismatch, client api version : 1.59.0, server api version : 1.58.0
+>
+> How can i fix this?
+
+If you receive a warning about a client and server API version mismatch, update Sui using the version in the relevant branch (`mainnet`, `testnet`, `devnet`) of the Sui repo.
+
+Update your Sui CLI to match the network version:
+
+```
+cargo install --locked --git https://github.com/MystenLabs/sui.git --branch devnet sui
+```
+Replace `devnet` with your target network branch.
+
+---
+
+## 📘 Check Out the Next Guide
+
+Continue learning more about Move and Sui smart contracts in the next guide in this series on my GitHub. Stay tuned for more hands-on examples that build directly on top of this one.
+
+---
+
+## 📜 References
+
+* [The Sui Official Documentation](https://docs.sui.io)
+* [The Move Book](https://move-book.com/)
+
+---
+
+## ❤️ Support the Author
+
+If you found this guide helpful, please follow me for more free Move/Sui content:
+
+🐦 **X (Twitter):** [Mello](https://x.com/mellothetrader_)
+
+⭐ **GitHub:** [FavourEjiogu](https://github.com/FavourEjiogu)
+
+Leaving a **star** on the repository helps motivate me to write more beginner-friendly tutorials like this. Thank you!
+
+---
+
+## ⚖️ License
+
+This guide is released under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+
+That means:
+
+* ✅ You can **share** (copy, redistribute) the material in any medium or format
+* ✅ You can **adapt** (remix, transform, and build upon) it
+* ❌ You **cannot** use it for commercial purposes
+* ⚠️ You **must** give appropriate credit (e.g., “Written by [Mello](https://x.com/mellothetrader_)”)
+
+For full details, see the [license text here](https://creativecommons.org/licenses/by-nc/4.0/).
+
+---
+
+⭐ **Star this repository if you enjoyed the guide!** ⭐
+
+**Made with ❤️ and lots of ☕ by [Mello](https://x.com/mellothetrader_) for the [Sui Community](https://x.com/SuiCommunity)**
