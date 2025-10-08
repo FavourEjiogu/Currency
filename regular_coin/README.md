@@ -142,3 +142,53 @@ const TOTAL_SUPPLY: u64 = 1000000000_000000000; // 1B supply (if decimals == 9)
 ```
 
 ---
+
+When you look up transaction data or a digest on Sui, you often see references to object types, especially for coins. For example, the comment you saw on line 10-11:
+
+/* The type identifier of coin. The coin will have a type
+tag of kind: `Coin<package_object::module::struct>`. */
+
+**What does this mean?**
+
+* **Type Tag**: In Sui, every object (including coins) has a type tag that uniquely identifies what kind of object it is. For coins, the type tag looks like `0x2::coin::Coin<package_object::module::struct>`.
+* **Why does it matter?**
+
+  * When you query transaction data or look up an object by its digest, you will see this type tag in the response.
+  * This tag tells you exactly what kind of coin or object you are dealing with. For example, SUI itself is `0x2::coin::Coin<0x2::sui::SUI>`, but a custom coin would have its own type, like `Coin<0x123...::my_module::my_struct>`.
+  * If you are building dApps, wallets, or explorers, you need to filter, display, or process objects based on their type tags.
+
+**Use cases:**
+
+* **Identifying Coins**: If you want to know if an object is a coin, you check its type tag.
+* **Custom Coins**: If you create your own coin, it will have a unique type tag.
+* **APIs and Queries**: When using Sui APIs (like GraphQL or RPC), you often filter or search for objects by their type tag.
+
+**Summary:**
+So basically, the type tag is how Sui (and you) know what kind of object or coin you are dealing with. It is essential for filtering, displaying, and interacting with coins and other objects on Sui.
+
+**Should the struct be named after the coin?**
+
+Yes, it is best practice to name the struct after the actual name of the coin or asset it represents.
+
+**Why?**
+
+* **Clarity:** When someone sees `struct MyCoin`, it’s immediately clear what the struct represents.
+* **Consistency:** It matches the type tag, which will be `Coin<package::module::MyCoin>`, making it easier to reason about types and avoid confusion.
+* **Ecosystem Standards:** The [Sui Move conventions](https://docs.sui.io/concepts/sui-move-concepts/conventions) recommend clear, descriptive names for structs, especially for key objects like coins.
+* This improves code readability, maintainability, and clarity for anyone using or reviewing your code.
+
+#### For example:
+
+```move
+public struct MyCoin has key, store {
+    id: UID
+}
+```
+
+This is a **good** practice.
+
+**Does it matter technically?**
+
+**Well, Technically:** No, the Move language and Sui do not require the struct name to match the coin’s branding or intended use. The type tag will always be `Coin<package::ModuleName::StructName>`, regardless of what you call `StructName`. However, using a descriptive name is **highly recommended** for the reasons above.
+
+---
