@@ -332,3 +332,92 @@ the `<MyCoin>` refers to the ***struct***, not the symbol.
 * The symbol, name, description, etc., are set in the coin's metadata, not in the type system.
 
 ---
+
+### 2. Creating a New Currency
+
+```
+let (mut currency, mut treasury_cap) = coin_registry::new_currency(
+    registry,
+    9,
+    b"MYC".to_string(),
+    b"MyCoin".to_string(),
+    b"Standard Unregulated Coin".to_string(),
+    b"https://example.com/my_coin.png".to_string(),
+    ctx,
+);
+```
+
+**What Happens**:
+
+* `coin_registry::new_currency(...)` creates a new coin type in Sui’s system.
+* It sets its metadata:
+
+  * Decimals (explained above): 9
+  * Symbol: `b"MYC".to_string()` (Symbol or Abbreviation of your coin, e.g., SCA, NAVX, SUI)
+  * Name: `b"MyCoin".to_string()` (The actual name of your Coin, this is what would be displayed in browsers, wallets, exchanges, etc)
+  * Description: `b"I love you Mello".to_string()` (i know you do haha)
+  * Icon URL: `b"https://example.com/my_coin.png".to_string()`(This is where you would put the link to your coin’s logo).
+
+**What You Get:**
+It returns two important resources:
+
+* `currency`: the setup/config object for your coin.
+* `treasury_cap`: your minting authority (the only thing that allows you to legally print coins).
+
+Remember to always include `b"...".to_string()` when filling in your coin's metadata, except for the decimal part.
+
+---
+
+Someone asked me this during a developer workshop:
+
+> In
+> `b"https://example.com/my_coin.png".to_string()`
+> What if i want to point to a local path?
+
+So, in Sui Move, the `icon_url` for a coin is expected to be a URL string (usually an HTTP(S) link) that points to an image accessible by wallets, explorers, or other clients.
+
+**That means:**
+
+* A file on your own computer (e.g., `file:///Users/you/my_coin.png`) will not work because wallets and explorers **cannot** access your local filesystem. They need a URL that is accessible over the internet.
+* If you want others to see the icon, upload it to a public image host (like GitHub, IPFS, or your own web server).
+
+**Here are some easy ways to host your coin icon image so you can use a public URL in your Sui Move project:**
+
+---
+
+**1. GitHub (Free & Easy)**
+
+* Upload your image to a public GitHub repository.
+* After uploading, click on the image file and copy the “Raw” file URL.
+* Example:
+
+  ```
+  https://raw.githubusercontent.com/yourusername/yourrepo/main/my_coin.png
+  ```
+* Use this URL in your Move code.
+
+---
+
+**2. Image Hosting Services**
+
+* Use free image hosts like [imgur.com](https://imgur.com/) or [postimages.org](https://postimages.org/).
+* Upload your image and copy the direct link.
+* Example:
+
+  ```
+  https://i.imgur.com/yourimage.png
+  ```
+
+---
+
+**3. Your Own Web Server**
+
+* If you have a website, upload the image to your server.
+* Use the direct URL:
+
+  ```
+  https://yourdomain.com/path/to/my_coin.png
+  ```
+
+---
+
