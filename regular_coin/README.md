@@ -192,3 +192,48 @@ This is a **good** practice.
 **Well, Technically:** No, the Move language and Sui do not require the struct name to match the coin’s branding or intended use. The type tag will always be `Coin<package::ModuleName::StructName>`, regardless of what you call `StructName`. However, using a descriptive name is **highly recommended** for the reasons above.
 
 ---
+
+In line 12-14:
+
+```
+public struct MyCoin has key, store { 
+    id: UID 
+}
+```
+
+This defines the **type** of your coin `MyCoin`.
+It’s the identity that every Coin `<MyCoin>` will be based on.
+
+`id: UID` gives it a unique identity on-chain.
+
+In Sui Move, when you define a struct for your coin (or any object), you control its abilities using the `has` keyword.
+
+**`key`** basically means it is an **object**
+
+**`store`** basically means it is **transferrable**
+
+The most common abilities in coin creation are `key` and `store`, because all coins have to be ***objects***, and you'd typically expect all coins to be ***transferrable***, right? Well in turns out, on sui, there are special kind of coins that can be created to only exist within a particular system, think of loyalty points or in-game money (like Call of Duty's CP) that can't be used outside the app/game or even transferrable to other users/players, and on sui these coins and their owners are actually publicly verifiable on the blockchain. They are called **Closed-Loop Tokens**. *For more info about Closed-Loop Tokens, click **here***.
+
+#### Now back to business:
+
+When creating regular coins, you actually do not need to explicitly add "store" if you already have "key". This is because, in Move, the `key` ability automatically implies `store` for all fields inside the struct.
+
+**From the official documentation:**
+
+> If a value has `key`, all values contained inside of that value have `store`. This is the only ability with this sort of asymmetry.
+> — [Source](https://github.com/MystenLabs/sui/blob/319fe085a2387747dc19d798895d77bd6d594063/external-crates/move/documentation/book/src/abilities.md)
+
+#### Example
+
+```move
+public struct MyCoin has key {
+    id: UID,
+    // other fields...
+}
+```
+
+* Here, `MyCoin` has the `key` ability.
+* This is enough for your struct to be transferable and storable as an object.
+* So you do not need to write `has key, store`, and in fact it might actually just be redundant but personally, i like to include it because it's not harmful and it just makes more sense to do so (especially for beginners, it improves code readability and it will help you understand abilities better), and it's just 1 extra word bro.
+
+---
