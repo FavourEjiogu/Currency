@@ -256,3 +256,34 @@ public struct MyCoin has key {
 | Coin name in wallet/explorer                   | Coin Name, defined in metadata, not struct name |
 
 ---
+
+### Here, a new currency is created without a [OTW (One Time Witness) proof of uniqueness]():
+
+```
+ public fun new_currency(registry: &mut CoinRegistry, ctx: &mut TxContext): Coin<MyCoin> {
+    let (mut currency, mut treasury_cap) = coin_registry::new_currency(
+        registry,
+        9, // This is where the actual decimal value is stated
+        b"MYC".to_string(), // Symbol (Abbreviation) of your coin (e.g., SCA, NAVX, SUI) 
+        b"MyCoin".to_string(), // Name of your coin
+        b"Standard Unregulated Coin".to_string(), // Description of your coin
+        b"https://example.com/my_coin.png".to_string(), // Icon URL (The link to your logo, check the ReadMe for more info)
+        ctx,
+    );
+
+    let total_supply = treasury_cap.mint(TOTAL_SUPPLY, ctx); // This line mints the initial supply of your coin (Check the ReadMe to understand HOW it works).
+    currency.make_supply_burn_only(treasury_cap); // This line makes the coin's supply "burn-only" (Check the ReadMe to understand HOW it works).
+
+    let metadata_cap = currency.finalize(ctx); // This line finalizes the creation of your coin
+    
+    /// Here, the recipient is the sender of the transaction. The linter would normally warn you, but the #[allow(lint(self_transfer))] suppresses that warning.
+    transfer::public_transfer(metadata_cap, ctx.sender()); // This line transfers the MetadataCap object to the transaction sender. 
+    
+    total_supply
+}   
+```
+
+Now, as a first timer, i know this looks crazy, but trust me it's not. By the end of this guide, you'll see why Move just makes sense.
+
+If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://x.com/MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Currency), thanks!
+
