@@ -237,3 +237,22 @@ public struct MyCoin has key {
 * So you do not need to write `has key, store`, and in fact it might actually just be redundant but personally, i like to include it because it's not harmful and it just makes more sense to do so (especially for beginners, it improves code readability and it will help you understand abilities better), and it's just 1 extra word bro.
 
 ---
+
+### **Quick Recap**:
+
+* **Module (`regular_coin`)**: This is the Move module where your coin logic lives.
+* **Struct (`MyCoin`)**: This is the type identifier for your coin.
+* **Type Tag**: The full type tag for your coin is `Coin<package_object::ModuleName::StructName>`.
+* **Coin Name**: The ***display name*** of the coin (what users see, e.g., "Scallop" or "SCA") is set in the metadata when you call `create_currency` or similar functions. It is **not** automatically the same as the struct name.
+
+**So, note that:**
+
+* The struct name (`MyCoin`) and module (`regular_coin`) are for type identification.
+* The coin’s ***display name*** is set in metadata and can be anything you want.
+
+| What you see on chain                          | What it means                                   |
+| ---------------------------------------------- | ----------------------------------------------- |
+| `Coin<package_object::ModuleName::StructName>` | Coin Type, defined by struct & module           |
+| Coin name in wallet/explorer                   | Coin Name, defined in metadata, not struct name |
+
+---
