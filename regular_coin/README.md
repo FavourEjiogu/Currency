@@ -59,3 +59,86 @@ If no errors show up, you’re ready to go 🚀
 The rest of this README explains how and why that code works, line by line, concept by concept.
 
 ---
+
+## 🪙 Understanding What’s Going On
+
+In line 7, i know you're probably wondering why theres way more than 9 zeros if the total supply is going to be just 1 billion. if you are, that means you are inquisitive just like me :)
+
+You see in crypto, especially when in context of currency and currency creation, we have something called decimals, they are not exactly what you were taught in school (1.59, 2.87, etc) but not entirely different.
+
+A decimal in crypto refers to the number of decimal places a cryptocurrency can be divided into. Unlike traditional fiat currencies, which typically use two decimal places (e.g., dollars and cents) where the smallest unit is usually 1/100 of the smallest note (e.g., 1 cent is 1/100 of 1$), most cryptocurrencies like Bitcoin (BTC) and Sui (SUI) are divisible down to 8 decimal places or more.
+
+This high degree of divisibility is crucial for several reasons:
+
+* **Microtransactions:** It allows for the valuation and transaction of tiny fractions of a cryptocurrency, making it suitable for small purchases and microtransactions.
+* **Accessibility:** It ensures that transactions remain accessible regardless of the asset's value, even as the price appreciates significantly.
+* **Precision:** It enables greater precision in transaction handling, particularly important for complex smart contract operations and gas fee calculations.
+
+Now dont get me wrong, figures like 2.82 SUI still exist, but this is actually represented as 2.820000000 SUI (and ofcourse we know that the trailing zeros behind a decimal point doesn't matter)
+
+This is because SUI supports up to 9 decimal places (because 1 SUI = 1,000,000,000 MIST).
+This means you can see amounts like:
+1.123456789 SUI in your wallet
+
+It is generally considered best practice to create coins that follow the same decimal standard as the parent chain (in Sui’s case, 9 decimals), especially for tokens that are meant to be widely used, traded, or paired with SUI.
+
+**Why Match the Decimal Standard?**
+
+* User Experience: Consistency with SUI makes it easier for users to understand and compare values.
+* Interoperability: DEXs, wallets, and other dApps expect 9 decimals for SUI and may assume the same for other coins, reducing the risk of display or calculation errors.
+* Integration: Many DeFi protocols and infrastructure tools are optimized for the native decimal standard.
+
+### So in our example:
+
+If you write:
+
+```move
+const TOTAL_SUPPLY: u64 = 1000000000;
+```
+
+This means the value of `TOTAL_SUPPLY` is exactly **one billion** (1,000,000,000) with **no extra zeros** for decimal places.
+
+#### What’s the difference?
+
+* `const TOTAL_SUPPLY: u64 = 1000000000_000000000;`
+
+  * Value: 1,000,000,000,000,000,000 (one quintillion)
+  * If your coin uses 9 decimals, this represents **1 billion coins** (1,000,000,000.000000000 in human-readable form).
+* `const TOTAL_SUPPLY: u64 = 1000000000;`
+
+  * Value: 1,000,000,000 (one billion)
+  * If your coin uses 9 decimals, this represents **one coin** (1.000000000 in human-readable form).
+
+#### So now that means:
+
+* The number you set for `TOTAL_SUPPLY` should match the number of coins you want to mint, including the number of decimals.
+* If your coin has 9 decimals, and you want a total supply of "1,000,000,000.000000000" coins, you must use `1000000000_000000000` (1,000,000,000,000,000,000).
+* If you use just `1000000000`, you are only minting "1.000000000" coins (if displayed with 9 decimals).
+
+#### Summary:
+
+The value should also include all the zeros for the decimal places.
+
+---
+
+#### One question i usually get asked frequently at developer workshops is:
+
+> "Is the Underscore basically representation of a decimal point?"
+
+The answer is **No**
+
+**Please note that** (`_`) **does not** represent a decimal point. Instead, Sui Move uses an underscore (`_`) as a digit separator for readability, similar to how you might write `1,000,000` for one million. This is a common pattern in Move (and many other languages) to make large numbers easier to read.
+
+#### So that means:
+
+* `1000000000_000000000` is exactly the same as `1,000,000,000,000,000,000`.
+* The underscore is ignored by the compiler; it’s just for humans.
+* The underscore is just to improve readability.
+
+#### For example:
+
+```move
+const TOTAL_SUPPLY: u64 = 1000000000_000000000; // 1B supply (if decimals == 9)
+```
+
+---
