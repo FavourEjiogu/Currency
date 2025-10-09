@@ -54,7 +54,7 @@ Once you’ve added the code, verify everything is fine by building your package
 sui move build
 ```
 
-If no errors show up, you’re ready to go 🚀
+If no errors show up, you’re ready to go!
 
 The rest of this README explains how and why that code works, line by line, concept by concept.
 
