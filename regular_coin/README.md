@@ -38,7 +38,7 @@ regular_coin/
 
 ```
 
-### 🪙 Step 2: Populate the code
+### 🧩 Step 2: Populate the code
 
 Paste the code from **[here](https://github.com/FavourEjiogu/Currency/blob/main/regular_coin/sources/regular_coin.move)** inside:
 
@@ -60,7 +60,7 @@ The rest of this README explains how and why that code works, line by line, conc
 
 ---
 
-## 🪙 Understanding What’s Going On
+## Understanding What’s Going On
 
 In line 7, i know you're probably wondering why theres way more than 9 zeros if the total supply is going to be just 1 billion. if you are, that means you are inquisitive just like me :)
 
