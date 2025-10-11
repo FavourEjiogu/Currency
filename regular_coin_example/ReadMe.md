@@ -484,3 +484,22 @@ Will **definitely** throw you a `CommandArgumentError`.
 
 
 Alright, that's all for now, i'll be adding more CBIs after developer workshops. 
+
+
+## 📘 Check Out the Next Guide
+
+Continue learning more about Move and Sui smart contracts in the next guide in this series on my GitHub. Stay tuned for more hands-on examples that build directly on top of this one.
+
+---
+
+## ❤️ Support the Author
+
+If you found this guide helpful, please follow me for more **free** Move/Sui content:
+
+🐦 **X (Twitter):** [Mello](https://x.com/mellothetrader_)
+
+⭐ **GitHub:** [Favour Ejiogu](https://github.com/FavourEjiogu)
+
+Leaving a **star** on the repository helps motivate me to write more beginner-friendly tutorials like this. Thank you!
+
+---
