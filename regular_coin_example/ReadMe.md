@@ -503,3 +503,23 @@ If you found this guide helpful, please follow me for more **free** Move/Sui con
 Leaving a **star** on the repository helps motivate me to write more beginner-friendly tutorials like this. Thank you!
 
 ---
+
+## ⚖️ License
+
+This guide is released under the **Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)** license.
+
+That means:
+
+* ✅ You can **share** (copy, redistribute) the material in any medium or format
+* ✅ You can **adapt** (remix, transform, and build upon) it
+* ❌ You **cannot** use it for commercial purposes
+* ⚠️ You **must** give appropriate credit (e.g., “Written by [Favour Ejiogu](https://github.com/FavourEjiogu)”)
+
+For full details, see the [license text here](https://creativecommons.org/licenses/by-nc/4.0/).
+
+---
+
+⭐ **Star this repository if you enjoyed the guide!** ⭐
+
+**Made with ❤️ and lots of ☕ by [Mello](https://x.com/mellothetrader_) for the [Sui Community](https://x.com/SuiCommunity)**
+
