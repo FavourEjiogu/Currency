@@ -447,3 +447,11 @@ You are now officially a **ROOKIE BLOCKCHAIN DEVELOPER!**
 - The PTB approach is also necessary for any function that returns a resource without the drop ability, not just for coins.
 
 ---
+
+### What to check before using PTBs
+
+- **Function Signature:** Make sure your function returns an object that can be transferred.
+- **Recipient Address:** The address you transfer to, **must** be able to receive the object (i.e., it must be a valid Sui address).
+
+---
+
