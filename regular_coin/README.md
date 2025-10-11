@@ -628,7 +628,7 @@ If you found this guide helpful, please follow me for more free Move/Sui content
 
 🐦 **X (Twitter):** [Mello](https://x.com/mellothetrader_)
 
-⭐ **GitHub:** [FavourEjiogu](https://github.com/FavourEjiogu)
+⭐ **GitHub:** [Favour Ejiogu](https://github.com/FavourEjiogu)
 
 Leaving a **star** on the repository helps motivate me to write more beginner-friendly tutorials like this. Thank you!
 
