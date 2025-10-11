@@ -66,7 +66,7 @@ Now that we have successfully built our package, the next step now is to publish
 
 #### It should look like this:
 
-[insert sui client publish example.png]
+![sui client publish example](../images/sui%20client%20publish%20example.png)
 
 ---
 
