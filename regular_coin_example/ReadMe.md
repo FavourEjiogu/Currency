@@ -127,3 +127,8 @@ Disecting what happened during a transaction is very crucial for beginners, beca
 If you want to see these details for any object, you can use any Sui explorer or even the Sui CLI to inspect by object ID.
 
 ---
+
+
+
+> **But how do i actually see the coin i created? At the moment, i can't see it, it's not in my wallet**.
+
