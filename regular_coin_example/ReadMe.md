@@ -69,3 +69,49 @@ Now that we have successfully built our package, the next step now is to publish
 [insert sui client publish example.png]
 
 ---
+
+### Now lets disect what happened:
+
+#### 1. **Creation of the `UpgradeCap` Object**
+First we can see that a new object was created, the `UpgradeCap`.
+
+When you publish a package, Sui creates an `UpgradeCap` object.  
+
+- **Purpose:** This object gives the publisher the ability to upgrade the package in the future.
+
+- **Details you can inspect:**  
+  - **ObjectID:** Unique identifier for the `UpgradeCap`.
+  - **Owner:** The account that owns the capability.
+  - **ObjectType:** Always `0x2::package::UpgradeCap` for this object.
+  - **Version:** Tracks if the capability has changed.
+  - **Digest:** Hash of the object’s state.
+
+---
+
+#### 2. **Mutation of the SUI Coin Object**
+
+Secondly we can see that an object was mutated, `SUI`.
+
+Publishing a package costs gas, which is paid in SUI. The SUI coin object in your wallet is mutated to reflect the deduction.
+
+- **Details you can inspect:**  
+
+  - **ObjectType:** `0x2::coin::Coin<0x2::sui::SUI>`
+  - **Owner:** Your account.
+  - **Version:** Increments after mutation.
+  - **Digest:** New hash after the transaction.
+
+---
+
+#### 3. **Publishing the Package**
+
+Lastly, we can see that an object was published, the Package (which was `regular_coin_example`), now exists on the sui network, on-chain (whenever you see/hear "on-chain", it basically means that whatever they're referring to now has an address that can be used to verify the authenticity of the action through an explorer, in Sui's case, they're indicating that the item is an object and can be verified through an ID ), and its module is also onchain.
+
+- **Details you can inspect:**
+
+  - **PackageID:** Unique identifier for the package.
+  - **Version:** Starts at 1.
+  - **Digest:** Hash of the package.
+  - **Modules:** List of modules published (e.g., `regular_coin_example`).
+
+---
