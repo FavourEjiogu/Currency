@@ -41,3 +41,17 @@ So, here we are actually going to **"create"** the coin:
 ---
 
 After building with `sui move build`, if you followed this guide correctly, there shouldn't be any errror, but if you see an error, go through your code to see if you made any mistake or typo
+
+#### Your result should look like:
+
+```bash
+INCLUDING DEPENDENCY Bridge
+INCLUDING DEPENDENCY SuiSystem
+INCLUDING DEPENDENCY Sui
+INCLUDING DEPENDENCY MoveStdlib
+BUILDING regular_coin_example
+Total number of linter warnings suppressed: 1 (unique lints: 1)
+```
+[insert regular coin build.png]
+
+---
