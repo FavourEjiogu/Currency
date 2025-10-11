@@ -115,3 +115,15 @@ Lastly, we can see that an object was published, the Package (which was `regular
   - **Modules:** List of modules published (e.g., `regular_coin_example`).
 
 ---
+
+#### **On-Chain Verification**
+
+So now this basically means that i can pick out any of the IDs and **verify** who the **sender** or the **owner** of the **object** is, the **type of object** it is (is it a coin? is it a capability? is it a package? etc), the **version of the object** (has it been altered/upgraded?), and lastly the **transaction digest** (to dig deeper into the object)
+
+---
+
+Disecting what happened during a transaction is very crucial for beginners, because it will help you understand the Sui object model and transaction flow.
+
+If you want to see these details for any object, you can use any Sui explorer or even the Sui CLI to inspect by object ID.
+
+---
