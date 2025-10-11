@@ -643,7 +643,7 @@ That means:
 * ✅ You can **share** (copy, redistribute) the material in any medium or format
 * ✅ You can **adapt** (remix, transform, and build upon) it
 * ❌ You **cannot** use it for commercial purposes
-* ⚠️ You **must** give appropriate credit (e.g., “Written by [Mello](https://x.com/mellothetrader_)”)
+* ⚠️ You **must** give appropriate credit (e.g., “Written by [Favour Ejiogu](https://github.com/FavourEjiogu)”)
 
 For full details, see the [license text here](https://creativecommons.org/licenses/by-nc/4.0/).
 
