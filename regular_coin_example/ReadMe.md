@@ -439,3 +439,11 @@ And just look at that! We have **SUCCESSFULLY** created a deflationary coin with
 You are now officially a **ROOKIE BLOCKCHAIN DEVELOPER!**
 
 ---
+
+### Quick Recap:
+
+- **Resource Management:** In Sui Move, objects that do not have the `drop` ability, **must** be transfered, destroyed, or otherwise consumed. If you just let them go out of scope, you'll get an `UnusedValueWithoutDrop` error.
+- **PTB Usage:** PTB lets you **chain** these actions together, **ensuring** that **ALL** resources are properly handled in a **single transaction**. 
+- The PTB approach is also necessary for any function that returns a resource without the drop ability, not just for coins.
+
+---
