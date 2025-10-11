@@ -416,3 +416,26 @@ Transaction Digest: En3NeSNwayQcURfEcoeV7HpfXsc2VvGRSQxWwEKkYM7f
 
 
 ```
+
+#### And you can confirm by running `sui client balance`
+
+```bash
+ ╭────────────────────────────────────────────────────╮
+│ Balance of coins owned by this address             │
+├────────────────────────────────────────────────────┤
+│ ╭────────────────────────────────────────────────╮ │
+│ │ coin       balance (raw)        balance        │ │
+│ ├────────────────────────────────────────────────┤ │
+│ │ Sui        39898795436          39.89 SUI      │ │
+│ │ MelloCoin  1000000000000000000  1000.00M MLC   │ │
+│ ╰────────────────────────────────────────────────╯ │
+╰────────────────────────────────────────────────────╯
+```
+
+From my experience, you might need a stable internet connection for this to work.
+
+And just look at that! We have **SUCCESSFULLY** created a deflationary coin with a fixed supply!! 
+
+You are now officially a **ROOKIE BLOCKCHAIN DEVELOPER!**
+
+---
