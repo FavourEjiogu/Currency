@@ -132,3 +132,10 @@ If you want to see these details for any object, you can use any Sui explorer or
 
 > **But how do i actually see the coin i created? At the moment, i can't see it, it's not in my wallet**.
 
+When you run `sui client publish`, **you are only deploying your Move package** (the smart contract code).  
+**This does NOT automatically create or mint any coins.**
+
+To do that, we would have to `call` the function that creates or mints the coins.
+
+But before that, for context, Devnet was reset at time i was making this guide, so i had to re-publish the package which gave me a different PackageID. For the rest of this guide, my new PackageID is `0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb`
+
