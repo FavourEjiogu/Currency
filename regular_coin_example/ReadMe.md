@@ -455,3 +455,11 @@ You are now officially a **ROOKIE BLOCKCHAIN DEVELOPER!**
 
 ---
 
+#### Tip:
+
+Use a **dry run** to see the intended effects of your code without spending gas or deploying to a live network, which is vital for catching mistakes in an irreversible environment. 
+
+You can acheive this by adding `--dry-run` to the end of your PTB command chain (Or even at the end of a `sui client call` command).
+
+
+---
