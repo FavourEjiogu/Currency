@@ -139,3 +139,34 @@ To do that, we would have to `call` the function that creates or mints the coins
 
 But before that, for context, Devnet was reset at time i was making this guide, so i had to re-publish the package which gave me a different PackageID. For the rest of this guide, my new PackageID is `0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb`
 
+### Now, there are two main ways to `call` the function:
+
+#### 1. Using `sui client call`:
+
+```bash
+sui client call --package 0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb --module regular_coin --function new_currency --args @0xc
+```
+
+But because we are just returning an object (`total_supply`) inside a function (`new_currency`), we can't use this method. Using it would result to an error like:
+
+``` bash
+failure due to UnusedValueWithoutDrop
+```
+
+This is because Move is strict about resource management. 
+
+Every value must be used, moved, stored, returned, or dropped (if it has the drop ability).
+
+If you just “leave” something unused at the end of a function, Move panics with `UnusedValueWithoutDrop`.
+
+But in our case, we **DID** return something, which was `total_supply`, so what could actually be the **real issue** here?
+
+So, you see, by calling `new_currency`, we are trying to mint coins right? But ask yourself, **WHERE** are these coins going to? 
+
+Exactly! So we need to somehow mint **AND** transfer the minted coins to our address, at the **same** time.
+
+That can only be done with **PTBs**
+
+You can try it to see for yourself :)
+
+---
