@@ -463,3 +463,24 @@ You can acheive this by adding `--dry-run` to the end of your PTB command chain 
 
 
 ---
+
+### Common Beginner Issues (CBIs):
+
+> **I don't know what's wrong, i did everything right, but i got an error saying:** 
+```bash
+Error executing transaction `abc...xyz`: CommandArgumentError {arg_idx: 0, kind InvalidUsageOfPureArg } in command 0
+```
+
+My brother (or sister), please ensure you used **`@`** before the addresses, **yes** `0xc` is an address. The only exception to this, is in the `PackageID` field.
+
+**For example:**
+
+```bash
+sui client ptb --move-call 0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb::regular_coin::new_currency 0xc --assign "total_supply" --transfer-objects "[total_supply]" @0x53e18124ca06bf820af
+73d64254e852e2e0801ec1a44dd07b1c0ef39c6ab2707
+```
+
+Will **definitely** throw you a `CommandArgumentError`.
+
+
+Alright, that's all for now, i'll be adding more CBIs after developer workshops. 
