@@ -5,3 +5,13 @@
 > You'll learn about PTBs, Sui's object model and Transaction flow, and how they (alongside other concepts) all come together to create a fungible token (coin).
 
 ---
+
+## 🧠 Before You Begin
+
+**Estimated Time to Completion:** 15-25 minutes  
+
+**Prerequisites**
+- Successfully Completed [Part 1]()
+- A little curiosity, patience, and ☕  
+
+---
