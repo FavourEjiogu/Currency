@@ -28,3 +28,16 @@ What does that do? Just know that it basically compiles your code and checks for
 2. Call the function `new_currency`
 
 ---
+
+So, here we are actually going to **"create"** the coin:
+
+#### Before we continue:
+- The name of the package in this example is `regular_coin_example`
+- The name of the coin is `MelloCoin`
+- The name of the struct is also `MelloCoin` (remember why)
+- The name of the module is `regular_coin`
+- Check out the source code [here]()
+
+---
+
+After building with `sui move build`, if you followed this guide correctly, there shouldn't be any errror, but if you see an error, go through your code to see if you made any mistake or typo
