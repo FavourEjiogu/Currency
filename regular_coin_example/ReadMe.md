@@ -170,3 +170,22 @@ That can only be done with **PTBs**
 You can try it to see for yourself :)
 
 ---
+
+#### 2. Using PTBs (Programmable Transaction Blocks):
+
+```bash
+sui client ptb --move-call 0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb::regular_coin::new_currency @0xc --assign "total_supply" --transfer-objects "[total_supply]" @0x53e18124ca06bf820af
+73d64254e852e2e0801ec1a44dd07b1c0ef39c6ab2707
+```
+
+A PTB (Programmable Transaction Block) in Sui is a way to **compose** and **execute multiple actions** (like Move calls, object transfers, coin splits, etc.) in a **single transaction**.
+
+What can you do with PTBs?
+
+- `Publish` Move packages
+- Call Move functions (`move-call`)
+- `Assign` results to variables
+- `Transfer` objects
+- `Split`/`Merge` coins
+- `Create vectors` of Move values
+
