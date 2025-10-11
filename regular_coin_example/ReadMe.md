@@ -189,3 +189,35 @@ What can you do with PTBs?
 - `Split`/`Merge` coins
 - `Create vectors` of Move values
 
+**So, let's breakdown what happened in our PTB command step-by-step:**
+
+```bash
+sui client ptb \
+  --move-call 0x2d081f04e119f6a35e9a1e154513cf94be267845283b00c591c5344fb6e902eb::regular_coin::new_currency @0xc \
+  --assign "total_supply" \
+  --transfer-objects "[total_supply]" @0x53e18124ca06bf820af73d64254e852e2e0801ec1a44dd07b1c0ef39c6ab2707
+```
+
+#### What each part does:
+
+1. **`--move-call 0x2d08...::regular_coin::new_currency @0xc`**
+   - This calls the `new_currency` function in the `regular_coin` module at the specified address(the **PackageID** of `regular_coin_example`).
+   - `@0xc` is the argument passed to the function (which is the address of **`CoinRegistry`**).
+
+2. **`--assign "total_supply"`**
+   - The result of the `move-call` is assigned to a variable named `total_supply`.
+   - This means whatever object or value that is returned by `new_currency` **will now be referenced as** `total_supply` in the next steps.
+
+3. **`--transfer-objects "[total_supply]" @0x53e18124ca06bf820af73d64254e852e2e0801ec1a44dd07b1c0ef39c6ab2707`**
+   - This transfers the object(s) in the list `[total_supply]` to the address `0x53e18124ca06bf820af73d64254e852e2e0801ec1a44dd07b1c0ef39c6ab2707`.
+   - Here, the list contains only one value, which is the variable `total_supply` that we got earlier, and transfers it to "`0x53e18...707`" which is my address.
+
+#### What happened in this transaction?
+ 
+- We called a function to create a new currency.
+
+- The result (which is an object (`total_supply`, in line 41) representing the total coins minted with the value that we set in line 7 (`TOTAL_SUPPLY`),  was assigned to `total_supply`).
+
+- We then transferred this `total_supply` object to a specific address (Which is my address).
+
+---
