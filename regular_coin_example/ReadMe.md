@@ -55,3 +55,17 @@ Total number of linter warnings suppressed: 1 (unique lints: 1)
 [insert regular coin build.png]
 
 ---
+
+Now that we have successfully built our package, the next step now is to publish our package to the sui network.
+
+#### To do that:
+
+**Run:** `sui client publish`
+
+**Scroll to:** ```Object Changes```
+
+#### It should look like this:
+
+[insert sui client publish example.png]
+
+---
