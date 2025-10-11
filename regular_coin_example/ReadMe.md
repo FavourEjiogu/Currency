@@ -52,7 +52,7 @@ INCLUDING DEPENDENCY MoveStdlib
 BUILDING regular_coin_example
 Total number of linter warnings suppressed: 1 (unique lints: 1)
 ```
-![Regular coin build image](../images/images/regular coin build.png)
+![Regular coin build image](../images/regular%20coin%20build.png)
 
 ---
 
