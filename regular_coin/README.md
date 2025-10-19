@@ -611,7 +611,7 @@ Replace `devnet` with your target network branch.
 
 ## 📘 Check Out the Next Guide
 
-Continue learning more about Move and Sui smart contracts in the next guide in this series on my GitHub. Stay tuned for more hands-on examples that build directly on top of this one.
+Continue learning more about Move and Sui smart contracts [in the next guide in this series](https://github.com/FavourEjiogu/Fungible-Tokens/tree/main/regular_coin_example) on my GitHub. Stay tuned for more hands-on examples that build directly on top of this one.
 
 ---
 
