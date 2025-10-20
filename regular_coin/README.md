@@ -285,7 +285,7 @@ public struct MyCoin has key {
 
 Now, as a first timer, i know this looks crazy, but trust me it's not. By the end of this guide, you'll see why Move just makes sense.
 
-If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://twitter.com/intent/follow?screen_name=MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Currency), thanks!
+If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://twitter.com/intent/follow?screen_name=MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Fungible-Tokens/tree/main/regular_coin), thanks!
 
 ## Now back to business:
 
