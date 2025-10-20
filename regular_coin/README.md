@@ -285,7 +285,7 @@ public struct MyCoin has key {
 
 Now, as a first timer, i know this looks crazy, but trust me it's not. By the end of this guide, you'll see why Move just makes sense.
 
-If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://x.com/MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Currency), thanks!
+If you haven't already, consider following me on [Github](https://github.com/FavourEjiogu) and [X/Twitter](https://twitter.com/intent/follow?screen_name=MelloTheTrader_), i'd really appreciate it! It motivates me to write more free guides like this... ouu and leave a star on [this repo](https://github.com/FavourEjiogu/Currency), thanks!
 
 ## Now back to business:
 
@@ -626,7 +626,7 @@ Continue learning more about Move and Sui smart contracts [in the next guide in 
 
 If you found this guide helpful, please follow me for more free Move/Sui content:
 
-🐦 **X (Twitter):** [Mello](https://x.com/mellothetrader_)
+🐦 **X (Twitter):** [Mello](https://twitter.com/intent/follow?screen_name=MelloTheTrader_)
 
 ⭐ **GitHub:** [Favour Ejiogu](https://github.com/FavourEjiogu)
 
@@ -651,4 +651,4 @@ For full details, see the [license text here](https://creativecommons.org/licens
 
 ⭐ **Star this repository if you enjoyed the guide!** ⭐
 
-**Made with ❤️ and lots of ☕ by [Mello](https://x.com/mellothetrader_) for the [Sui Community](https://x.com/SuiCommunity)**
+**Made with ❤️ and lots of ☕ by [Mello](https://twitter.com/intent/follow?screen_name=MelloTheTrader_) for the [Sui Community](https://x.com/SuiCommunity)**
