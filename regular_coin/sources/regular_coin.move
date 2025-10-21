@@ -10,7 +10,7 @@ const TOTAL_SUPPLY: u64 = 1000000000_000000000; // 1B supply if decimals == 9. H
 /* The type identifier of coin. The coin will have a type
 tag of kind: `Coin<package_object::module::struct>`. Check the ReadMe for more info */
 public struct MyCoin has key, store { // You actually do not need to explicitly add "store" if you already have "key". This is because, in Move, the "key" ability automatically implies "store" for all fields inside the struct. Check the ReadMe for more info
-    id: UID // Unique ID
+    id: UID // Unique on-chain ID
 }
 // it is best practice to name the struct after the actual name of the coin or asset it represents. This improves code readability, maintainability, and clarity for anyone using or reviewing your code. Check out the readme for more details
 
