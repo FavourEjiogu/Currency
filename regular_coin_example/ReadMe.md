@@ -11,7 +11,7 @@
 **Estimated Time to Completion:** 15-25 minutes  
 
 **Prerequisites**
-- Successfully Completed [Part 1]()
+- Successfully Completed [Part 1](https://github.com/FavourEjiogu/Fungible-Tokens/tree/main/regular_coin)
 - A little curiosity, patience, and ☕  
 
 ---
