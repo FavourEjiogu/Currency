@@ -16,7 +16,7 @@ public struct MyCoin has key, store { // You actually do not need to explicitly 
 
 
 
-#[allow(lint(self_transfer))] // Ignores warnings when an object is transferred to the same address that initiated the transaction, you'll see why below.
+#[allow(lint(self_transfer))] // This is an attribute that tells the Move compiler to ignore the warning that appears when an object is transferred to the same address that initiated the transaction. You'll see why below.
 
 /// Here, a new currency is created without a OTW(One Time Witness (explained in the readme)) proof of uniqueness.
 public fun new_currency(registry: &mut CoinRegistry, ctx: &mut TxContext): Coin<MyCoin> {
