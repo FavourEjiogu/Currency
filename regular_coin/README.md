@@ -617,7 +617,7 @@ Continue learning more about Move and Sui smart contracts [in the next guide in 
 
 ## 📜 References
 
-* [The Sui Official Documentation](https://docs.sui.io)
+* [The Official Sui Documentation](https://docs.sui.io)
 * [The Move Book](https://move-book.com/)
 
 ---
